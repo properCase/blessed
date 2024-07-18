@@ -124,46 +124,46 @@ screen.render();
 ### Widgets
 
 - [Base Nodes](#base-nodes)
-  - [Node](#node-from-eventemitter) (abstract)
-  - [Screen](#screen-from-node)
-  - [Element](#element-from-node) (abstract)
+  - [Node](#node) (abstract)
+  - [Screen](#screen)
+  - [Element](#element) (abstract)
 - [Boxes](#boxes)
-  - [Box](#box-from-element)
-  - [Text](#text-from-element)
-  - [Line](#line-from-box)
-  - [ScrollableBox](#scrollablebox-from-box) (deprecated)
-  - [ScrollableText](#scrollabletext-from-scrollablebox) (deprecated)
-  - [BigText](#bigtext-from-box)
+  - [Box](#box)
+  - [Text](#text)
+  - [Line](#line)
+  - [ScrollableBox](#scrollablebox) (deprecated)
+  - [ScrollableText](#scrollabletext) (deprecated)
+  - [BigText](#bigtext)
 - [Lists](#lists)
-  - [List](#list-from-box)
-  - [FileManager](#filemanager-from-list)
-  - [ListTable](#listtable-from-list)
-  - [Listbar](#listbar-from-box)
+  - [List](#list)
+  - [FileManager](#filemanager)
+  - [ListTable](#listtable)
+  - [Listbar](#listbar)
 - [Forms](#forms)
-  - [Form](#form-from-box)
-  - [Input](#input-from-box) (abstract)
-  - [Textarea](#textarea-from-input)
-  - [Textbox](#textbox-from-textarea)
-  - [Button](#button-from-input)
-  - [Checkbox](#checkbox-from-input)
-  - [RadioSet](#radioset-from-box)
-  - [RadioButton](#radiobutton-from-checkbox)
+  - [Form](#form)
+  - [Input](#input) (abstract)
+  - [Textarea](#textarea)
+  - [Textbox](#textbox)
+  - [Button](#button)
+  - [Checkbox](#checkbox)
+  - [RadioSet](#radioset)
+  - [RadioButton](#radiobutton)
 - [Prompts](#prompts)
-  - [Prompt](#prompt-from-box)
-  - [Question](#question-from-box)
-  - [Message](#message-from-box)
-  - [Loading](#loading-from-box)
+  - [Prompt](#prompt)
+  - [Question](#question)
+  - [Message](#message)
+  - [Loading](#loading)
 - [Data Display](#data-display)
-  - [ProgressBar](#progressbar-from-input)
-  - [Log](#log-from-scrollabletext)
-  - [Table](#table-from-box)
+  - [ProgressBar](#progressbar)
+  - [Log](#log)
+  - [Table](#table)
 - [Special Elements](#special-elements)
-  - [Terminal](#terminal-from-box)
-  - [Image](#image-from-box)
-  - [ANSIImage](#ansiimage-from-box)
-  - [OverlayImage](#overlayimage-from-box)
-  - [Video](#video-from-box)
-  - [Layout](#layout-from-element)
+  - [Terminal](#terminal)
+  - [Image](#image)
+  - [ANSIImage](#ansiimage)
+  - [OverlayImage](#overlayimage)
+  - [Video](#video)
+  - [Layout](#layout)
 
 ### Other
 
@@ -209,7 +209,7 @@ nasty low-level terminal stuff.
 ### Base Nodes
 
 
-#### Node (from EventEmitter)
+#### Node
 
 The base node which everything inherits from.
 
@@ -221,7 +221,7 @@ The base node which everything inherits from.
 
 ##### Properties:
 
-- Inherits all from EventEmitter.
+- Inherits all from [EventEmitter](base/event-emitter.md).
 - __type__ - Type of the node (e.g. `box`).
 - __options__ - Original options object.
 - __parent__ - Parent node.
@@ -232,7 +232,7 @@ The base node which everything inherits from.
 
 ##### Events:
 
-- Inherits all from EventEmitter.
+- Inherits all from [EventEmitter](base/event-emitter.md).
 - __adopt__ - Received when node is added to a parent.
 - __remove__ - Received when node is removed from it's current parent.
 - __reparent__ - Received when node gains a new parent.
@@ -243,7 +243,7 @@ The base node which everything inherits from.
 
 ##### Methods:
 
-- Inherits all from EventEmitter.
+- Inherits all from [EventEmitter](base/event-emitter.md).
 - __prepend(node)__ - Prepend a node to this node's children.
 - __append(node)__ - Append a node to this node's children.
 - __remove(node)__ - Remove child node from node.
@@ -259,7 +259,7 @@ The base node which everything inherits from.
 - __set(name, value)__ - Set user property to value.
 
 
-#### Screen (from Node)
+#### Screen
 
 The screen on which every other node renders.
 
@@ -340,7 +340,7 @@ The screen on which every other node renders.
 
 ##### Properties:
 
-- Inherits all from Node.
+- Inherits all from [Node](base/node.md).
 - __program__ - The blessed Program object.
 - __tput__ - The blessed Tput object (only available if you passed `tput: true`
   to the Program constructor.)
@@ -366,7 +366,7 @@ The screen on which every other node renders.
 
 ##### Events:
 
-- Inherits all from Node.
+- Inherits all from [Node](base/node.md).
 - __resize__ - Received on screen resize.
 - __mouse__ - Received on mouse events.
 - __keypress__ - Received on key events.
@@ -384,7 +384,7 @@ The screen on which every other node renders.
 
 ##### Methods:
 
-- Inherits all from Node.
+- Inherits all from [Node](base/node.md).
 - __log(msg, ...)__ - Write string to the log file if one was created.
 - __debug(msg, ...)__ - Same as the log method, but only gets called if the
   `debug` option was set.
@@ -450,7 +450,7 @@ The screen on which every other node renders.
 - __setTerminal(term)__ - Reset the terminal to `term`. Reloads terminfo.
 
 
-#### Element (from Node)
+#### Element
 
 The base element.
 
@@ -505,7 +505,7 @@ The base element.
 
 ##### Properties:
 
-- Inherits all from Node.
+- Inherits all from [Node](base/node.md).
 - __name__ - Name of the element. Useful for form submission.
 - __border__ - Border object.
   - __type__ - Type of border (`line` or `bg`). `bg` by default.
@@ -537,7 +537,7 @@ The base element.
 
 ##### Events:
 
-- Inherits all from Node.
+- Inherits all from [Node](base/node.md).
 - __blur, focus__ - Received when an element is focused or unfocused.
 - __mouse__ - Received on mouse events for this element.
   - __mousedown, mouseup__ - Mouse button was pressed or released.
@@ -557,7 +557,7 @@ The base element.
 
 ##### Methods:
 
-- Inherits all from Node.
+- Inherits all from [Node](base/node.md).
 - Note: If the `scrollable` option is enabled, Element inherits all methods
   from ScrollableBox.
 - __render()__ - Write content and children to the screen buffer.
@@ -654,34 +654,34 @@ parameter must be a string.
 ### Boxes
 
 
-#### Box (from Element)
+#### Box
 
 A box element which draws a simple box containing `content` or other elements.
 
 ##### Options:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 
 ##### Properties:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 
 ##### Events:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 
 ##### Methods:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 
 
-#### Text (from Element)
+#### Text
 
 An element similar to Box, but geared towards rendering simple text elements.
 
 ##### Options:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 - __fill__ - Fill the entire line with chosen bg until parent bg ends, even if
   there is not enough text to fill the entire width. __(deprecated)__
 - __align__ - Text alignment: `left`, `center`, or `right`.
@@ -689,13 +689,13 @@ An element similar to Box, but geared towards rendering simple text elements.
 Inherits all options, properties, events, and methods from Element.
 
 
-#### Line (from Box)
+#### Line
 
 A simple line which can be `line` or `bg` styled.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __orientation__ - Can be `vertical` or `horizontal`.
 - __type, bg, fg, ch__ - Treated the same as a border object.
   (attributes can be contained in `style`).
@@ -703,7 +703,7 @@ A simple line which can be `line` or `bg` styled.
 Inherits all options, properties, events, and methods from Box.
 
 
-#### ScrollableBox (from Box)
+#### ScrollableBox
 
 __DEPRECATED__ - Use Box with the `scrollable` option instead.
 
@@ -711,7 +711,7 @@ A box with scrollable content.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __baseLimit__ - A limit to the childBase. Default is `Infinity`.
 - __alwaysScroll__ - A option which causes the ignoring of `childOffset`. This
   in turn causes the childBase to change every time the element is scrolled.
@@ -722,13 +722,13 @@ A box with scrollable content.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __childBase__ - The offset of the top of the scroll content.
 - __childOffset__ - The offset of the chosen item/line.
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __scroll__ - Received when the element is scrolled.
 
 ##### Methods:
@@ -743,7 +743,7 @@ A box with scrollable content.
 - __resetScroll()__ - Reset the scroll index to its initial state.
 
 
-#### ScrollableText (from ScrollableBox)
+#### ScrollableText
 
 __DEPRECATED__ - Use Box with the `scrollable` and `alwaysScroll` options
 instead.
@@ -753,32 +753,32 @@ pre-existing newlines and escape codes.
 
 ##### Options:
 
-- Inherits all from ScrollableBox.
+- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 - __mouse__ - Whether to enable automatic mouse support for this element.
 - __keys__ - Use predefined keys for navigating the text.
 - __vi__ - Use vi keys with the `keys` option.
 
 ##### Properties:
 
-- Inherits all from ScrollableBox.
+- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 
 ##### Events:
 
-- Inherits all from ScrollableBox.
+- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 
 ##### Methods:
 
-- Inherits all from ScrollableBox.
+- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 
 
-#### BigText (from Box)
+#### BigText
 
 A box which can render content drawn as 8x14 cell characters using the terminus
 font.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __font__ - bdf->json font file to use (see [ttystudio][ttystudio] for
   instructions on compiling BDFs to JSON).
 - __fontBold__ - bdf->json bold font file to use (see [ttystudio][ttystudio]
@@ -787,27 +787,27 @@ font.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 
 ### Lists
 
 
-#### List (from Box)
+#### List
 
 A scrollable list which can display selectable items.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __style.selected__ - Style for a selected item.
 - __style.item__ - Style for an unselected item.
 - __mouse__ - Whether to automatically enable mouse support for this list
@@ -826,18 +826,18 @@ A scrollable list which can display selectable items.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __select__ - Received when an item is selected.
 - __cancel__ - List was canceled (when `esc` is pressed with the `keys` option).
 - __action__ - Either a select or a cancel event was received.
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __add/addItem(text)__ - Add an item based on a string.
 - __removeItem(child)__ - Removes an item from the list. Child can be an
   element, index, or string.
@@ -865,7 +865,7 @@ A scrollable list which can display selectable items.
   content.
 
 
-#### FileManager (from List)
+#### FileManager
 
 A very simple file manager for selecting files.
 
@@ -894,7 +894,7 @@ A very simple file manager for selecting files.
 - __reset([cwd], [callback])__ - Reset back to original cwd.
 
 
-#### ListTable (from List)
+#### ListTable
 
 A stylized table of text elements with a list.
 
@@ -929,13 +929,13 @@ A stylized table of text elements with a list.
 ```
 
 
-#### Listbar (from Box)
+#### Listbar
 
 A horizontal list. Useful for a main menu bar.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __style.selected__ - Style for a selected item.
 - __style.item__ - Style for an unselected item.
 - __commands/items__ - Set buttons using an object with keys as titles of
@@ -944,15 +944,15 @@ A horizontal list. Useful for a main menu bar.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __setItems(commands)__ - Set commands (see `commands` option above).
 - __add/addItem/appendItem(item, callback)__ - Append an item to the bar.
 - __select(offset)__ - Select an item on the bar.
@@ -966,31 +966,31 @@ A horizontal list. Useful for a main menu bar.
 ### Forms
 
 
-#### Form (from Box)
+#### Form
 
 A form which can contain form elements.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __keys__ - Allow default keys (tab, vi keys, enter).
 - __vi__ - Allow vi keys.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __submission__ - Last submitted data.
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __submit__ - Form is submitted. Receives a data object.
 - __cancel__ - Form is discarded.
 - __reset__ - Form is cleared.
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __focusNext()__ - Focus next form element.
 - __focusPrevious()__ - Focus previous form element.
 - __submit()__ - Submit the form.
@@ -998,18 +998,18 @@ A form which can contain form elements.
 - __reset()__ - Clear the form.
 
 
-#### Input (from Box)
+#### Input
 
 A form input.
 
 
-#### Textarea (from Input)
+#### Textarea
 
 A box which allows multiline text input.
 
 ##### Options:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __keys__ - Use pre-defined keys (`i` or `enter` for insert, `e` for editor,
   `C-e` for editor while inserting).
 - __mouse__ - Use pre-defined mouse events (right-click for editor).
@@ -1018,19 +1018,19 @@ A box which allows multiline text input.
 
 ##### Properties:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __value__ - The input text. __read-only__.
 
 ##### Events:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __submit__ - Value is submitted (enter).
 - __cancel__ - Value is discared (escape).
 - __action__ - Either submit or cancel.
 
 ##### Methods:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __submit__ - Submit the textarea (emits `submit`).
 - __cancel__ - Cancel the textarea (emits `cancel`).
 - __readInput(callback)__ - Grab key events and start reading text from the
@@ -1042,7 +1042,7 @@ A box which allows multiline text input.
 - __setValue(text)__ - Set value.
 
 
-#### Textbox (from Textarea)
+#### Textbox
 
 A box which allows text input.
 
@@ -1067,42 +1067,42 @@ A box which allows text input.
 - Inherits all from Textarea.
 
 
-#### Button (from Input)
+#### Button
 
 A button which can be focused and allows key and mouse input.
 
 ##### Options:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 
 ##### Properties:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 
 ##### Events:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __press__ - Received when the button is clicked/pressed.
 
 ##### Methods:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __press()__ - Press button. Emits `press`.
 
 
-#### Checkbox (from Input)
+#### Checkbox
 
 A checkbox which can be used in a form element.
 
 ##### Options:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __checked__ - Whether the element is checked or not.
 - __mouse__ - Enable mouse support.
 
 ##### Properties:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __text__ - The text next to the checkbox (do not use setContent, use
   `check.text = ''`).
 - __checked__ - Whether the element is checked or not.
@@ -1110,41 +1110,41 @@ A checkbox which can be used in a form element.
 
 ##### Events:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __check__ - Received when element is checked.
 - __uncheck__ received when element is unchecked.
 
 ##### Methods:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __check()__ - Check the element.
 - __uncheck()__ - Uncheck the element.
 - __toggle()__ - Toggle checked state.
 
 
-#### RadioSet (from Box)
+#### RadioSet
 
 An element wrapping RadioButtons. RadioButtons within this element will be
 mutually exclusive with each other.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 
-#### RadioButton (from Checkbox)
+#### RadioButton
 
 A radio button which can be used in a form element.
 
@@ -1168,97 +1168,97 @@ A radio button which can be used in a form element.
 ### Prompts
 
 
-#### Prompt (from Box)
+#### Prompt
 
 A prompt box containing a text input, okay, and cancel buttons (automatically
 hidden).
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __input/setInput/readInput(text, value, callback)__ - Show the prompt and
   wait for the result of the textbox. Set text and initial value.
 
 
-#### Question (from Box)
+#### Question
 
 A question box containing okay and cancel buttons (automatically hidden).
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __ask(question, callback)__ - Ask a `question`. `callback` will yield the
   result.
 
 
-#### Message (from Box)
+#### Message
 
 A box containing a message to be displayed (automatically hidden).
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __log/display(text, [time], callback)__ - Display a message for a time
   (default is 3 seconds). Set time to 0 for a perpetual message that is
   dismissed on keypress.
 - __error(text, [time], callback)__ - Display an error in the same way.
 
 
-#### Loading (from Box)
+#### Loading
 
 A box with a spinning line to denote loading (automatically hidden).
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __load(text)__ - Display the loading box with a message. Will lock keys until
   `stop` is called.
 - __stop()__ - Hide loading box. Unlock keys.
@@ -1267,13 +1267,13 @@ A box with a spinning line to denote loading (automatically hidden).
 ### Data Display
 
 
-#### ProgressBar (from Input)
+#### ProgressBar
 
 A progress bar allowing various styles. This can also be used as a form input.
 
 ##### Options:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __orientation__ - Can be `horizontal` or `vertical`.
 - __style.bar__ - Style of the bar contents itself.
 - __pch__ - The character to fill the bar with (default is space).
@@ -1284,58 +1284,58 @@ A progress bar allowing various styles. This can also be used as a form input.
 
 ##### Properties:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 
 ##### Events:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __reset__ - Bar was reset.
 - __complete__ - Bar has completely filled.
 
 ##### Methods:
 
-- Inherits all from Input.
+- Inherits all from [Input](objects/forms.md#input).
 - __progress(amount)__ - Progress the bar by a fill amount.
 - __setProgress(amount)__ - Set progress to specific amount.
 - __reset()__ - Reset the bar.
 
 
-#### Log (from ScrollableText)
+#### Log
 
 A log permanently scrolled to the bottom.
 
 ##### Options:
 
-- Inherits all from ScrollableText.
+- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __scrollback__ - Amount of scrollback allowed. Default: Infinity.
 - __scrollOnInput__ - Scroll to bottom on input even if the user has scrolled
   up. Default: false.
 
 ##### Properties:
 
-- Inherits all from ScrollableText.
+- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __scrollback__ - Amount of scrollback allowed. Default: Infinity.
 - __scrollOnInput__ - Scroll to bottom on input even if the user has scrolled
   up. Default: false.
 
 ##### Events:
 
-- Inherits all from ScrollableText.
+- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __log__ - Emitted on a log line. Passes in line.
 
 ##### Methods:
 
-- Inherits all from ScrollableText.
+- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __log/add(text)__ - Add a log line.
 
 
-#### Table (from Box)
+#### Table
 
 A stylized table of text elements.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __rows/data__ - Array of array of strings representing rows.
 - __pad__ - Spaces to attempt to pad on the sides of each cell. `2` by default:
   one space on each side (only useful if the width is shrunken).
@@ -1346,15 +1346,15 @@ A stylized table of text elements.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __setRows/setData(rows)__ - Set rows in table. Array of arrays of strings.
 ``` js
   table.setData([
@@ -1368,7 +1368,7 @@ A stylized table of text elements.
 ### Special Elements
 
 
-#### Terminal (from Box)
+#### Terminal
 
 A box which spins up a pseudo terminal and renders the output. Useful for
 writing a terminal multiplexer, or something similar to an mc-like file
@@ -1377,7 +1377,7 @@ manager. Requires term.js and pty.js to be installed. See
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __handler__ - Handler for input data.
 - __shell__ - Name of shell. `$SHELL` by default.
 - __args__ - Args for shell.
@@ -1388,19 +1388,19 @@ manager. Requires term.js and pty.js to be installed. See
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __term__ - Reference to the headless term.js terminal.
 - __pty__ - Reference to the pty.js pseudo terminal.
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __title__ - Window title from terminal.
 - Other events similar to ScrollableBox.
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __write(data)__ - Write data to the terminal.
 - __screenshot([xi, xl, yi, xl])__ - Nearly identical to `element.screenshot`,
   however, the specified region includes the terminal's _entire_ scrollback,
@@ -1408,40 +1408,40 @@ manager. Requires term.js and pty.js to be installed. See
 - Other methods similar to ScrollableBox.
 
 
-#### Image (from Box)
+#### Image
 
 Display an image in the terminal (jpeg, png, gif) using either blessed's
-internal png/gif-to-terminal renderer (using a [ANSIImage element](#ansiimage-from-box)) or
-using `w3mimgdisplay` (using a [OverlayImage element](#overlayimage-from-box)).
+internal png/gif-to-terminal renderer (using a [ANSIImage element](#ansiimage)) or
+using `w3mimgdisplay` (using a [OverlayImage element](#overlayimage)).
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __file__ - Path to image.
 - __type__ - `ansi` or `overlay`. Whether to render the file as ANSI art or
-  using `w3m` to overlay. See the [ANSIImage element](#ansiimage-from-box) for
+  using `w3m` to overlay. See the [ANSIImage element](#ansiimage) for
   more information/options. (__default__: `ansi`).
 
 ##### Properties:
 
-- Inherits all from Box.
-- See [ANSIImage element](#ansiimage-from-box)
-- See [OverlayImage element](#overlayimage-from-box)
+- Inherits all from [Box](objects/boxes.md#box).
+- See [ANSIImage element](#ansiimage)
+- See [OverlayImage element](#overlayimage)
 
 ##### Events:
 
-- Inherits all from Box.
-- See [ANSIImage element](#ansiimage-from-box)
-- See [OverlayImage element](#overlayimage-from-box)
+- Inherits all from [Box](objects/boxes.md#box).
+- See [ANSIImage element](#ansiimage)
+- See [OverlayImage element](#overlayimage)
 
 ##### Methods:
 
-- Inherits all from Box.
-- See [ANSIImage element](#ansiimage-from-box)
-- See [OverlayImage element](#overlayimage-from-box)
+- Inherits all from [Box](objects/boxes.md#box).
+- See [ANSIImage element](#ansiimage)
+- See [OverlayImage element](#overlayimage)
 
 
-#### ANSIImage (from Box)
+#### ANSIImage
 
 Convert any `.png` file (or `.gif`, see below) to an ANSI image and display it
 as an element. This differs from the `OverlayImage` element in that it uses
@@ -1467,7 +1467,7 @@ installed.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __file__ - URL or path to PNG/GIF file. Can also be a buffer.
 - __scale__ - Scale cellmap down (`0-1.0`) from its original pixel width/height
   (Default: `1.0`).
@@ -1491,7 +1491,7 @@ installed.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __img__ - Image object from the png reader.
 - __img.width__ - Pixel width.
 - __img.height__ - Pixel height.
@@ -1500,11 +1500,11 @@ installed.
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __setImage(file)__ - Set the image in the box to a new path. File can be a
   path, url, or buffer.
 - __clearImage()__ - Clear the image.
@@ -1513,7 +1513,7 @@ installed.
 - __stop()__ - Stop animation.
 
 
-#### OverlayImage (from Box)
+#### OverlayImage
 
 Display an image in the terminal (jpeg, png, gif) using w3mimgdisplay. Requires
 w3m to be installed. X11 required: works in xterm, urxvt, and possibly other
@@ -1521,10 +1521,10 @@ terminals.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __file__ - Path to image.
 - __ansi__ - Render the file as ANSI art instead of using `w3m` to overlay
-  Internally uses the ANSIImage element. See the [ANSIImage element](#ansiimage-from-box) for
+  Internally uses the ANSIImage element. See the [ANSIImage element](#ansiimage) for
   more information/options. (Default: `true`).
 - __w3m__ - Path to w3mimgdisplay. If a proper `w3mimgdisplay` path is not
   given, blessed will search the entire disk for the binary.
@@ -1533,15 +1533,15 @@ terminals.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __setImage(img, [callback])__ - Set the image in the box to a new path.
 - __clearImage([callback])__ - Clear the current image.
 - __imageSize(img, [callback])__ - Get the size of an image file in pixels.
@@ -1551,7 +1551,7 @@ terminals.
   node supports `spawnSync`.
 
 
-#### Video (from Box)
+#### Video
 
 A box which spins up a pseudo terminal in order to render a video via `mplayer
 -vo caca` or `mpv --vo caca`. Requires `mplayer` or `mpv` to be installed with
@@ -1559,25 +1559,25 @@ libcaca support.
 
 ##### Options:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __file__ - Video to play.
 - __start__ - Start time in seconds.
 
 ##### Properties:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 - __tty__ - The terminal element running `mplayer` or `mpv`.
 
 ##### Events:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 ##### Methods:
 
-- Inherits all from Box.
+- Inherits all from [Box](objects/boxes.md#box).
 
 
-#### Layout (from Element)
+#### Layout
 
 A layout which can position children automatically based on a `renderer` method
 (__experimental__ - the mechanics of this element may be changed in the
@@ -1588,7 +1588,7 @@ By default, the Layout element automatically positions children as if they were
 
 ##### Options:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 - __renderer__ - A callback which is called right before the children are
   iterated over to be rendered. Should return an iterator callback which is
   called on each child element: __iterator(el, i)__.
@@ -1599,15 +1599,15 @@ By default, the Layout element automatically positions children as if they were
 
 ##### Properties:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 
 ##### Events:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 
 ##### Methods:
 
-- Inherits all from Element.
+- Inherits all from [Element](base/element.md).
 - __renderer(coords)__ - A callback which is called right before the children
   are iterated over to be rendered. Should return an iterator callback which is
   called on each child element: __iterator(el, i)__.

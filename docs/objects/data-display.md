@@ -8,7 +8,7 @@ A progress bar allowing various styles. This can also be used as a form input.
 
 ### Options:
 
-- Inherits all from [Input](objects/forms.md#input).
+- Inherits [Input](objects/forms.md#input).
 - __orientation__ - Can be `horizontal` or `vertical`.
 - __style.bar__ - Style of the bar contents itself.
 - __pch__ - The character to fill the bar with (default is space).
@@ -19,17 +19,17 @@ A progress bar allowing various styles. This can also be used as a form input.
 
 ### Properties:
 
-- Inherits all from [Input](objects/forms.md#input).
+- Inherits [Input](objects/forms.md#input).
 
 ### Events:
 
-- Inherits all from [Input](objects/forms.md#input).
+- Inherits [Input](objects/forms.md#input).
 - __reset__ - Bar was reset.
 - __complete__ - Bar has completely filled.
 
 ### Methods:
 
-- Inherits all from [Input](objects/forms.md#input).
+- Inherits [Input](objects/forms.md#input).
 - __progress(amount)__ - Progress the bar by a fill amount.
 - __setProgress(amount)__ - Set progress to specific amount.
 - __reset()__ - Reset the bar.
@@ -41,26 +41,26 @@ A log permanently scrolled to the bottom.
 
 ### Options:
 
-- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
+- Inherits [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __scrollback__ - Amount of scrollback allowed. Default: Infinity.
 - __scrollOnInput__ - Scroll to bottom on input even if the user has scrolled
   up. Default: false.
 
 ### Properties:
 
-- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
+- Inherits [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __scrollback__ - Amount of scrollback allowed. Default: Infinity.
 - __scrollOnInput__ - Scroll to bottom on input even if the user has scrolled
   up. Default: false.
 
 ### Events:
 
-- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
+- Inherits [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __log__ - Emitted on a log line. Passes in line.
 
 ### Methods:
 
-- Inherits all from [~ScrollableText~](objects/deprecated.md#scrollabletext).
+- Inherits [~ScrollableText~](objects/deprecated.md#scrollabletext).
 - __log/add(text)__ - Add a log line.
 
 ----
@@ -70,7 +70,7 @@ A stylized table of text elements.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __rows/data__ - Array of array of strings representing rows.
 - __pad__ - Spaces to attempt to pad on the sides of each cell. `2` by default:
   one space on each side (only useful if the width is shrunken).
@@ -81,15 +81,15 @@ A stylized table of text elements.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __setRows/setData(rows)__ - Set rows in table. Array of arrays of strings.
 ``` js
   table.setData([

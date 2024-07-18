@@ -54,7 +54,7 @@ The base element.
 
 ## Properties
 
-- Inherits all from [Node](base/node.md).
+- Inherits [Node](base/node.md).
 - __name__ - Name of the element. Useful for form submission.
 - __border__ - Border object.
     - __type__ - Type of border (`line` or `bg`). `bg` by default.
@@ -86,12 +86,12 @@ The base element.
 
 ## Events
 
-- Inherits all from [Node](base/node.md).
+- Inherits [Node](base/node.md).
 - __blur, focus__ - Received when an element is focused or unfocused.
 - __mouse__ - Received on mouse events for this element.
     - __mousedown, mouseup__ - Mouse button was pressed or released.
     - __wheeldown, wheelup__ - Wheel was scrolled down or up.
-    - __mouseover, mouseout__ - Element was hovered or unhovered.
+    - __mouseover, mouseout__ - Element was hovered or un-hovered.
     - __mousemove__ - Mouse was moved somewhere on this element.
     - __click__ - Element was clicked (slightly smarter than mouseup).
 - __keypress__ - Received on key events for this element.
@@ -106,7 +106,7 @@ The base element.
 
 ## Methods
 
-- Inherits all from [Node](base/node.md).
+- Inherits [Node](base/node.md).
 - Note: If the `scrollable` option is enabled, Element inherits all methods
   from ScrollableBox.
 - __render()__ - Write content and children to the screen buffer.

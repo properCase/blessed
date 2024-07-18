@@ -1,28 +1,28 @@
 
 # Node
 
-The base node which everything inherits from.
+The base object which everything Inherits.
 
 ## Options
 
 - __screen__ - The screen to be associated with.
 - __parent__ - The desired parent.
-- __children__ - An arrray of children.
+- __children__ - An array of children.
 
 ## Properties
 
-- Inherits all from [EventEmitter](base/event-emitter.md).
+- Inherits [EventEmitter](base/event-emitter.md).
 - __type__ - Type of the node (e.g. `box`).
 - __options__ - Original options object.
 - __parent__ - Parent node.
 - __screen__ - Parent screen.
 - __children__ - Array of node's children.
-- __data, _, $__ - An object for any miscellanous user data.
+- __data, _, $__ - An object for any miscellaneous user data.
 - __index__ - Render index (document order index) of the last render call.
 
 ## Events
 
-- Inherits all from [EventEmitter](base/event-emitter.md).
+- Inherits [EventEmitter](base/event-emitter.md).
 - __adopt__ - Received when node is added to a parent.
 - __remove__ - Received when node is removed from it's current parent.
 - __reparent__ - Received when node gains a new parent.
@@ -33,7 +33,7 @@ The base node which everything inherits from.
 
 ## Methods
 
-- Inherits all from [EventEmitter](base/event-emitter.md).
+- Inherits [EventEmitter](base/event-emitter.md).
 - __prepend(node)__ - Prepend a node to this node's children.
 - __append(node)__ - Append a node to this node's children.
 - __remove(node)__ - Remove child node from node.

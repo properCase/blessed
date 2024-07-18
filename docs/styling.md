@@ -310,7 +310,7 @@ screen.render();
 ```
 
 Elements are rendered with the lower elements in the children array being
-painted first. In terms of the painter's algorithm, the lowest indicies in the
+painted first. In terms of the painter's algorithm, the lowest indices in the
 array are the furthest away, just like in the DOM.
 
 

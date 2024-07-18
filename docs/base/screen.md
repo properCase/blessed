@@ -80,7 +80,7 @@ Become:
 
 ### Properties
 
-- Inherits all from [Node](base/node.md).
+- Inherits [Node](base/node.md).
 - __program__ - The blessed Program object.
 - __tput__ - The blessed Tput object (only available if you passed `tput: true`
   to the Program constructor.)
@@ -106,7 +106,7 @@ Become:
 
 ## Events
 
-- Inherits all from [Node](base/node.md).
+- Inherits [Node](base/node.md).
 - __resize__ - Received on screen resize.
 - __mouse__ - Received on mouse events.
 - __keypress__ - Received on key events.
@@ -124,7 +124,7 @@ Become:
 
 ## Methods
 
-- Inherits all from [Node](base/node.md).
+- Inherits [Node](base/node.md).
 - __log(msg, ...)__ - Write string to the log file if one was created.
 - __debug(msg, ...)__ - Same as the log method, but only gets called if the
   `debug` option was set.

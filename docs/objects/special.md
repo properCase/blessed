@@ -11,7 +11,7 @@ manager. Requires term.js and pty.js to be installed. See
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __handler__ - Handler for input data.
 - __shell__ - Name of shell. `$SHELL` by default.
 - __args__ - Args for shell.
@@ -22,19 +22,19 @@ manager. Requires term.js and pty.js to be installed. See
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __term__ - Reference to the headless term.js terminal.
 - __pty__ - Reference to the pty.js pseudo terminal.
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __title__ - Window title from terminal.
 - Other events similar to ScrollableBox.
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __write(data)__ - Write data to the terminal.
 - __screenshot([xi, xl, yi, xl])__ - Nearly identical to `element.screenshot`,
   however, the specified region includes the terminal's _entire_ scrollback,
@@ -44,13 +44,13 @@ manager. Requires term.js and pty.js to be installed. See
 
 ## Image
 
-Display an image in the terminal (jpeg, png, gif) using either blessed's
+Display an image in the terminal (jpeg, png, gif) using either Blessed's
 internal png/gif-to-terminal renderer (using a [ANSIImage element](#ansiimage)) or
 using `w3mimgdisplay` (using a [OverlayImage element](#overlayimage)).
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __file__ - Path to image.
 - __type__ - `ansi` or `overlay`. Whether to render the file as ANSI art or
   using `w3m` to overlay. See the [ANSIImage element](#ansiimage) for
@@ -58,19 +58,19 @@ using `w3mimgdisplay` (using a [OverlayImage element](#overlayimage)).
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - See [ANSIImage element](#ansiimage)
 - See [OverlayImage element](#overlayimage)
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - See [ANSIImage element](#ansiimage)
 - See [OverlayImage element](#overlayimage)
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - See [ANSIImage element](#ansiimage)
 - See [OverlayImage element](#overlayimage)
 
@@ -79,7 +79,7 @@ using `w3mimgdisplay` (using a [OverlayImage element](#overlayimage)).
 
 Convert any `.png` file (or `.gif`, see below) to an ANSI image and display it
 as an element. This differs from the `OverlayImage` element in that it uses
-blessed's internal PNG/GIF parser and does not require external dependencies.
+Blessed's internal PNG/GIF parser and does not require external dependencies.
 
 Blessed uses an internal from-scratch PNG/GIF reader because no other javascript
 PNG reader supports Adam7 interlaced images (much less pass the png test
@@ -101,7 +101,7 @@ installed.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __file__ - URL or path to PNG/GIF file. Can also be a buffer.
 - __scale__ - Scale cellmap down (`0-1.0`) from its original pixel width/height
   (Default: `1.0`).
@@ -125,7 +125,7 @@ installed.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __img__ - Image object from the png reader.
 - __img.width__ - Pixel width.
 - __img.height__ - Pixel height.
@@ -134,11 +134,11 @@ installed.
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __setImage(file)__ - Set the image in the box to a new path. File can be a
   path, url, or buffer.
 - __clearImage()__ - Clear the image.
@@ -155,7 +155,7 @@ terminals.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __file__ - Path to image.
 - __ansi__ - Render the file as ANSI art instead of using `w3m` to overlay
   Internally uses the ANSIImage element. See the [ANSIImage element](#ansiimage) for
@@ -167,15 +167,15 @@ terminals.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __setImage(img, [callback])__ - Set the image in the box to a new path.
 - __clearImage([callback])__ - Clear the current image.
 - __imageSize(img, [callback])__ - Get the size of an image file in pixels.
@@ -193,22 +193,22 @@ libcaca support.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __file__ - Video to play.
 - __start__ - Start time in seconds.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __tty__ - The terminal element running `mplayer` or `mpv`.
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 
 ## Layout
@@ -222,7 +222,7 @@ By default, the Layout element automatically positions children as if they were
 
 ### Options:
 
-- Inherits all from [Element](base/element.md).
+- Inherits [Element](base/element.md).
 - __renderer__ - A callback which is called right before the children are
   iterated over to be rendered. Should return an iterator callback which is
   called on each child element: __iterator(el, i)__.
@@ -233,15 +233,15 @@ By default, the Layout element automatically positions children as if they were
 
 ### Properties:
 
-- Inherits all from [Element](base/element.md).
+- Inherits [Element](base/element.md).
 
 ### Events:
 
-- Inherits all from [Element](base/element.md).
+- Inherits [Element](base/element.md).
 
 ### Methods:
 
-- Inherits all from [Element](base/element.md).
+- Inherits [Element](base/element.md).
 - __renderer(coords)__ - A callback which is called right before the children
   are iterated over to be rendered. Should return an iterator callback which is
   called on each child element: __iterator(el, i)__.

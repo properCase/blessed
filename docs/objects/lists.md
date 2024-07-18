@@ -6,7 +6,7 @@ A scrollable list which can display selectable items.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __style.selected__ - Style for a selected item.
 - __style.item__ - Style for an unselected item.
 - __mouse__ - Whether to automatically enable mouse support for this list
@@ -25,18 +25,18 @@ A scrollable list which can display selectable items.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __select__ - Received when an item is selected.
 - __cancel__ - List was canceled (when `esc` is pressed with the `keys` option).
 - __action__ - Either a select or a cancel event was received.
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __add/addItem(text)__ - Add an item based on a string.
 - __removeItem(child)__ - Removes an item from the list. Child can be an
   element, index, or string.
@@ -71,23 +71,23 @@ A very simple file manager for selecting files.
 
 ### Options:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 - __cwd__ - Current working directory.
 
 ### Properties:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 - __cwd__ - Current working directory.
 
 ### Events:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 - __cd__ - Directory was selected and navigated to.
 - __file__ - File was selected.
 
 ### Methods:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 - __refresh([cwd], [callback])__ - Refresh the file list (perform a `readdir` on `cwd`
   and update the list items).
 - __pick([cwd], callback)__ - Pick a single file and return the path in the callback.
@@ -101,7 +101,7 @@ A stylized table of text elements with a list.
 
 ### Options:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 - __rows/data__ - Array of array of strings representing rows.
 - __pad__ - Spaces to attempt to pad on the sides of each cell. `2` by default:
   one space on each side (only useful if the width is shrunken).
@@ -111,15 +111,15 @@ A stylized table of text elements with a list.
 
 ### Properties:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 
 ### Events:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 
 ### Methods:
 
-- Inherits all from List.
+- Inherits [List](lists.md#list).
 - __setRows/setData(rows)__ - Set rows in table. Array of arrays of strings.
 ``` js
   table.setData([
@@ -136,7 +136,7 @@ A horizontal list. Useful for a main menu bar.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __style.selected__ - Style for a selected item.
 - __style.item__ - Style for an unselected item.
 - __commands/items__ - Set buttons using an object with keys as titles of
@@ -145,15 +145,15 @@ A horizontal list. Useful for a main menu bar.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 
 ### Methods:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __setItems(commands)__ - Set commands (see `commands` option above).
 - __add/addItem/appendItem(item, callback)__ - Append an item to the bar.
 - __select(offset)__ - Select an item on the bar.

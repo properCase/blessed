@@ -6,7 +6,7 @@ A box with scrollable content.
 
 ### Options:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __baseLimit__ - A limit to the childBase. Default is `Infinity`.
 - __alwaysScroll__ - A option which causes the ignoring of `childOffset`. This
   in turn causes the childBase to change every time the element is scrolled.
@@ -17,13 +17,13 @@ A box with scrollable content.
 
 ### Properties:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __childBase__ - The offset of the top of the scroll content.
 - __childOffset__ - The offset of the chosen item/line.
 
 ### Events:
 
-- Inherits all from [Box](objects/boxes.md#box).
+- Inherits [Box](objects/boxes.md#box).
 - __scroll__ - Received when the element is scrolled.
 
 ### Methods:
@@ -48,19 +48,19 @@ pre-existing newlines and escape codes.
 
 ### Options:
 
-- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
+- Inherits [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 - __mouse__ - Whether to enable automatic mouse support for this element.
 - __keys__ - Use predefined keys for navigating the text.
 - __vi__ - Use vi keys with the `keys` option.
 
 ### Properties:
 
-- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
+- Inherits [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 
 ### Events:
 
-- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
+- Inherits [~ScrollableBox~](objects/deprecated.md#scrollablebox).
 
 ### Methods:
 
-- Inherits all from [~ScrollableBox~](objects/deprecated.md#scrollablebox).
+- Inherits [~ScrollableBox~](objects/deprecated.md#scrollablebox).

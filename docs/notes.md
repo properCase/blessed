@@ -116,7 +116,7 @@ Examples can be found in `examples/`.
 7. Will blessed work with all terminals?
 - Yes. Blessed has a terminfo/termcap parser and compiler that was written
   from scratch. It should work with every terminal as long as a terminfo
-  file is provided. If you notice any compatibility issues in your termial,
+  file is provided. If you notice any compatibility issues in your terminal,
   do not hesitate to post an issue.
 8. What is "curses" and "ncurses"?
 - ["curses"][curses] was an old library written in the early days of unix

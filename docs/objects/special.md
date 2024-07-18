@@ -87,7 +87,7 @@ suite).
 
 The blessed PNG reader supports adam7 deinterlacing, animation (APNG), all
 color types, bit depths 1-32, alpha, alpha palettes, and outputs scaled bitmaps
-(cellmaps) in blessed for efficient rendering to the screen buffer. It also
+(cellmaps) in blessed for efficient rendering to the [screen](base/screen.md) buffer. It also
 uses some code from libcaca/libcucul to add density ASCII characters in order
 to give the image more detail in the terminal.
 
@@ -273,13 +273,13 @@ has more dynamic behavior which may interfere with rendering.
 Some definitions for `coords` (otherwise known as `el.lpos`):
 
 - `coords.xi` - the absolute x coordinate of the __left__ side of a rendered
-  element. It is absolute: relative to the screen itself.
+  element. It is absolute: relative to the [screen](base/screen.md) itself.
 - `coords.xl` - the absolute x coordinate of the __right__ side of a rendered
-  element. It is absolute: relative to the screen itself.
+  element. It is absolute: relative to the [screen](base/screen.md) itself.
 - `coords.yi` - the absolute y coordinate of the __top__ side of a rendered
-  element. It is absolute: relative to the screen itself.
+  element. It is absolute: relative to the [screen](base/screen.md) itself.
 - `coords.yl` - the absolute y coordinate of the __bottom__ side of a rendered
-  element. It is absolute: relative to the screen itself.
+  element. It is absolute: relative to the [screen](base/screen.md) itself.
 
 Note again: the `coords` the renderer receives for the Layout already has
 border and padding subtracted, so you do not have to account for these. The

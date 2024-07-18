@@ -7,7 +7,7 @@
 
 Currently there is no `mouse` or `resize` event support on Windows.
 
-Windows users will need to explicitly set `term` when creating a screen like so
+Windows users will need to explicitly set `term` when creating a [screen](base/screen.md) like so
 (__NOTE__: This is no longer necessary as of the latest versions of blessed.
 This is now handled automatically):
 
@@ -111,8 +111,8 @@ Examples can be found in `examples/`.
   or a terminal which uses a modern VTE, like gnome-terminal.
 6. Is blessed efficient?
 - Yes. Blessed implements CSR and uses the painter's algorithm to render the
-  screen. It maintains two screen buffers so it only needs to render what
-  has changed on the terminal screen.
+  [screen](base/screen.md). It maintains two [screen](base/screen.md) buffers so it only needs to render what
+  has changed on the terminal [screen](base/screen.md).
 7. Will blessed work with all terminals?
 - Yes. Blessed has a terminfo/termcap parser and compiler that was written
   from scratch. It should work with every terminal as long as a terminfo

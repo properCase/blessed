@@ -3,10 +3,25 @@
 
 The base element.
 
-## Options
+## Common Attributes
+- __fg, bg__ - Foreground color, background color,
+- __bold, underline__ - Text style.
 
-- __fg, bg, bold, underline__ - Attributes.
-- __style__ - May contain attributes in the format of
+## Positional Attributes
+Can be either a number (of columns/rows), percentage (`0-100%`), or keyword (`half` or `shrink`). 
+Percentages can also have offsets (`50%+1`, `50%-1`).
+```js
+{
+  top: 0,
+  // right:,
+  // bottom:,
+  left: '5%'
+}
+```
+
+## Options
+- __fg, bg,_bold, underline__ - Attributes.
+- __style__ - <a id="style-object"></a>May contain attributes in the format of
 ``` js
   {
     fg: 'blue',
@@ -25,12 +40,12 @@ The base element.
     }
   }
 ```
-- __border__ - Border object, see below.
+- __border__ - [Border object](#border-object), see below.
 - __content__ - Element's text content.
-- __clickable__ - Element is clickable.
+- __clickable__ - is the Element clickable?
 - __input, keyable__ - Element is focusable and can receive key input.
-- __focused__ - Element is focused.
-- __hidden__ - Whether the element is hidden.
+- __focused__ - is the Element focused?
+- __hidden__ - is the Element hidden?
 - __label__ - A simple text label for the element.
 - __hoverText__ - A floating text label for the element which appears on mouseover.
 - __align__ - Text alignment: `left`, `center`, or `right`.
@@ -47,30 +62,31 @@ The base element.
   `right` and `bottom` do not accept keywords. Percentages can also have
   offsets (`50%+1`, `50%-1`).
 - __position__ - Can contain the above options.
-- __scrollable__ - Whether the element is scrollable or not.
+- __scrollable__ - Is the element scrollable?
 - __ch__ - Background character (default is whitespace ` `).
-- __draggable__ - Allow the element to be dragged with the mouse.
+- __draggable__ - Is the element draggable? Set to true to allow
+  the element to be dragged with the mouse.
 - __shadow__ - Draw a translucent offset shadow behind the element.
 
 ## Properties
 
 - Inherits [Node](base/node.md).
 - __name__ - Name of the element. Useful for form submission.
-- __border__ - Border object.
+- __border__ - <a id="border-object"></a>Border object.
     - __type__ - Type of border (`line` or `bg`). `bg` by default.
     - __ch__ - Character to use if `bg` type, default is space.
     - __bg, fg__ - Border foreground and background, must be numbers (-1 for
       default).
     - __bold, underline__ - Border attributes.
-- __style__ - Contains attributes (e.g. `fg/bg/underline`). See above.
+- __style__ - [Style Object](#style-object). See above.
 - __position__ - Raw width, height, and offsets.
 - __content__ - Raw text content.
 - __hidden__ - Whether the element is hidden or not.
 - __visible__ - Whether the element is visible or not.
-- __detached__ - Whether the element is attached to a screen in its ancestry
+- __detached__ - Whether the element is attached to a [screen](base/screen.md) in its ancestry
   somewhere.
 - __fg, bg__ - Foreground and background, must be numbers (-1 for default).
-- __bold, underline__ - Attributes.
+- __bold, underline__ - Text style attributes.
 - __width__ - Calculated width.
 - __height__ - Calculated height.
 - __left__ - Calculated relative left offset.
@@ -81,8 +97,8 @@ The base element.
 - __aright__ - Calculated absolute right offset.
 - __atop__ - Calculated absolute top offset.
 - __abottom__ - Calculated absolute bottom offset.
-- __draggable__ - Whether the element is draggable. Set to true to allow
-  dragging.
+- __draggable__ - Is the element draggable? Set to true to allow
+  the element to be dragged with the mouse.
 
 ## Events
 
@@ -109,7 +125,7 @@ The base element.
 - Inherits [Node](base/node.md).
 - Note: If the `scrollable` option is enabled, Element inherits all methods
   from ScrollableBox.
-- __render()__ - Write content and children to the screen buffer.
+- __render()__ - Write content and children to the [screen](base/screen.md) buffer.
 - __hide()__ - Hide element.
 - __show()__ - Show element.
 - __toggle()__ - Toggle hidden/shown.
@@ -119,17 +135,17 @@ The base element.
   once.
 - __unkey(name, listener)__ - Remove a keypress listener for a specific key.
 - __onScreenEvent(type, handler)__ - Same as`el.on('screen', ...)` except this
-  will automatically keep track of which listeners are bound to the screen
+  will automatically keep track of which listeners are bound to the [screen](base/screen.md)
   object. For use with `removeScreenEvent()`, `free()`, and `destroy()`.
 - __removeScreenEvent(type, handler)__ - Same as`el.removeListener('screen',
   ...)` except this will automatically keep track of which listeners are bound
   to the screen object. For use with `onScreenEvent()`, `free()`, and
   `destroy()`.
 - __free()__ - Free up the element. Automatically unbind all events that may
-  have been bound to the screen object. This prevents memory leaks. For use
+  have been bound to the [screen object](base/screen.md). This prevents memory leaks. For use
   with `onScreenEvent()`, `removeScreenEvent()`, and `destroy()`.
 - __destroy()__ - Same as the `detach()` method, except this will automatically
-  call `free()` and unbind any screen events to prevent memory leaks.  for use
+  call `free()` and unbind any [screen events](base/screen.md#events) to prevent memory leaks.  for use
   with `onScreenEvent()`, `removeScreenEvent()`, and `free()`.
 - __setIndex(z)__ - Set the z-index of the element (changes rendering order).
 - __setFront()__ - Put the element in front of its siblings.

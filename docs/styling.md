@@ -2,7 +2,7 @@
 
 
 
-## Content & Tags
+## Content Tags
 
 Every element can have text content via `setContent`. If `tags: true` was
 passed to the element's constructor, the content can contain tags. For example:
@@ -302,7 +302,7 @@ This still needs to be tested a bit, but it should work.
 
 ## Rendering
 
-To actually render the screen buffer, you must call `render`.
+To actually render the [screen](base/screen.md) buffer, you must call `render`.
 
 ``` js
 box.setContent('Hello {#0fe1ab-fg}world{/}.');
@@ -439,11 +439,11 @@ There are currently no examples of netcat/nc/ncat or http->curl servers yet.
 The `blessed.screen` constructor can accept `input`, `output`, and `term`
 arguments to aid with this. The multiple screens will be managed internally by
 blessed. The programmer just has to keep track of the references, however, to
-avoid ambiguity, it's possible to explicitly dictate which screen a node is
+avoid ambiguity, it's possible to explicitly dictate which [screen](base/screen.md) a node is
 part of by using the `screen` option when creating an element.
 
 The `screen.destroy()` method is also crucial: this will clean up all event
-listeners the screen has bound and make sure it stops listening on the event
+listeners the [screen](base/screen.md) has bound and make sure it stops listening on the event
 loop. Make absolutely certain to remember to clean up your screens once you're
 done with them.
 

@@ -18,36 +18,6 @@ A box element which draws a simple box containing `content` or other elements.
 
 - Inherits [Element](base/element.md).
 
------
-
-## Text
-
-An element similar to Box, but geared towards rendering simple text elements.
-
-### Options:
-
-- Inherits [Element](base/element.md).
-- __fill__ - Fill the entire line with chosen bg until parent bg ends, even if
-  there is not enough text to fill the entire width. __(deprecated)__
-- __align__ - Text alignment: `left`, `center`, or `right`.
-
-Inherits all options, properties, events, and methods from Element.
-
------
-
-## Line
-
-A simple line which can be `line` or `bg` styled.
-
-### Options:
-
-- Inherits [Box](objects/boxes.md#box).
-- __orientation__ - Can be `vertical` or `horizontal`.
-- __type, bg, fg, ch__ - Treated the same as a border object.
-  (attributes can be contained in `style`).
-
-Inherits all options, properties, events, and methods from Box.
-
 ----
 ## BigText
 
@@ -74,3 +44,34 @@ font.
 ### Methods:
 
 - Inherits [Box](objects/boxes.md#box).
+
+-----
+
+## Line
+
+A simple line which can be `line` or `bg` styled.
+
+### Options:
+
+- Inherits [Box](objects/boxes.md#box).
+- __orientation__ - Can be `vertical` or `horizontal`.
+- __type, bg, fg, ch__ - Treated the same as a border object.
+  (attributes can be contained in `style`).
+
+Inherits all options, properties, events, and methods from Box.
+
+
+-----
+
+## Text
+
+An element similar to Box, but geared towards rendering simple text elements.
+
+### Options:
+
+- Inherits [Element](base/element.md).
+- __fill__ - Fill the entire line with chosen bg until parent bg ends, even if
+  there is not enough text to fill the entire width. __(deprecated)__
+- __align__ - Text alignment: `left`, `center`, or `right`.
+
+Inherits all options, properties, events, and methods from Element.

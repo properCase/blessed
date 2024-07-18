@@ -5,7 +5,7 @@ The base object which everything Inherits.
 
 ## Options
 
-- __screen__ - The screen to be associated with.
+- __screen__ - The [screen](base/screen.md) to be associated with.
 - __parent__ - The desired parent.
 - __children__ - An array of children.
 
@@ -15,7 +15,7 @@ The base object which everything Inherits.
 - __type__ - Type of the node (e.g. `box`).
 - __options__ - Original options object.
 - __parent__ - Parent node.
-- __screen__ - Parent screen.
+- __screen__ - Parent [screen](base/screen.md).
 - __children__ - Array of node's children.
 - __data, _, $__ - An object for any miscellaneous user data.
 - __index__ - Render index (document order index) of the last render call.
@@ -26,9 +26,9 @@ The base object which everything Inherits.
 - __adopt__ - Received when node is added to a parent.
 - __remove__ - Received when node is removed from it's current parent.
 - __reparent__ - Received when node gains a new parent.
-- __attach__ - Received when node is attached to the screen directly or
+- __attach__ - Received when node is attached to the [screen](base/screen.md) directly or
   somewhere in its ancestry.
-- __detach__ - Received when node is detached from the screen directly or
+- __detach__ - Received when node is detached from the [screen](base/screen.md) directly or
   somewhere in its ancestry.
 
 ## Methods
